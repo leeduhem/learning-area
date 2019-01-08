@@ -5,9 +5,12 @@ var html = document.querySelector('html');
 info.textContent = 'Below is a dynamic list. Click anywhere outside the list to add a new list item. Click an existing list item to change its text to something else.';
 
 document.body.appendChild(info);
-document.body.appendChild(list);
 
 html.onclick = function() {
+  if (! document.querySelector('nl')) {
+    document.body.appendChild(list);
+  }
+
   var listItem = document.createElement('li');
   var listContent = prompt('What content do you want the list item to have?');
   listItem.textContent = listContent;
